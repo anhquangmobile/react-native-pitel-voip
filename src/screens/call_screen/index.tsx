@@ -5,14 +5,28 @@ import styles from './styles';
 import { IconTextButton } from '../../components/icon_text_button';
 import { IconButton } from '../../components/icon_button';
 
-import MicroOn from '../../assets/svgs/mic_on.svg';
-import MicroOff from '../../assets/svgs/mic_off.svg';
-import SpeakerHigh from '../../assets/svgs/speaker_high.svg';
-import SpeakerLow from '../../assets/svgs/speaker_low.svg';
 import Hangup from '../../assets/svgs/hangup.svg';
 import Call from '../../assets/svgs/call.svg';
+import MicroOff from '../../assets/svgs/mic_off.svg';
+import MicroOn from '../../assets/svgs/mic_on.svg';
+import SpeakerHigh from '../../assets/svgs/speaker_high.svg';
+import SpeakerLow from '../../assets/svgs/speaker_low.svg';
 
-export const PitelCallKit = ({
+export type Props = {
+  pitelSDK: any;
+  microState: boolean;
+  speakerState: boolean;
+
+  phoneNumber: string;
+  direction: string;
+  callState: string;
+
+  onHangup: () => void;
+  onMicro: () => void;
+  onSpeaker: () => void;
+};
+
+export const PitelCallKit: React.FC<Props> = ({
   pitelSDK,
   microState,
   speakerState,
